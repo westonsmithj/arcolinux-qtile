@@ -18,7 +18,7 @@ function run {
 #xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 #autorandr horizontal
 
-xrandr --output DisplayPort-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output DisplayPort-1 --off --output DisplayPort-2 --mode 2560x1440 --pos 3840x0 --rotate normal --output HDMI-A-0 --off
+xrandr --output DisplayPort-0 --primary --mode 3840x2160 --rate 144.00 --pos 0x0 --rotate normal --output DisplayPort-1 --off --output DisplayPort-2 --mode 2560x1440 --pos 3840x0 --rotate normal --output HDMI-A-0 --off
 
 #change your keyboard if you need it
 #setxkbmap -layout be
