@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function run {
-  if ! pgrep $1 ;
+  if ! pgrep -x $(basename $1 | head -c 15) 1>/dev/null;
   then
     $@&
   fi
@@ -17,7 +17,7 @@ function run {
 #xrandr --output LVDS1 --mode 1366x768 --output DP3 --mode 1920x1080 --right-of LVDS1
 #xrandr --output HDMI2 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 #autorandr horizontal
-
+xrandr --output HDMI-0 --off --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --rate 144 --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --mode 2560x1440 --pos 3840x720 --rotate normal --output DP-5 --off
 #change your keyboard if you need it
 #setxkbmap -layout be
 
@@ -31,7 +31,11 @@ fi
 run dex $HOME/.config/autostart/arcolinux-welcome-app.desktop &
 
 #Some ways to set your wallpaper besides variety or nitrogen
-feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
+feh --bg-scale ~/.config/qtile/wall.jpg &
+#feh --bg-fill /usr/share/backgrounds/archlinux/arch-wallpaper.jpg &
+#feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
+#wallpaper for other Arch based systems
+#feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 #start the conky to learn the shortcuts
 (conky -c $HOME/.config/qtile/scripts/system-overview) &
 
@@ -47,11 +51,14 @@ run xfce4-power-manager &
 numlockx on &
 blueberry-tray &
 picom --config $HOME/.config/qtile/scripts/picom.conf &
+run $HOME/.config/qtile/scripts/set-pywall.sh &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 #starting user applications at boot time
 run volumeicon &
+run copyq &
+run /home/john/Documents/btkeepalive/keepalivebt.sh &
 #run discord &
 #nitrogen --restore &
 #run caffeine -a &
@@ -63,5 +70,3 @@ run volumeicon &
 #run spotify &
 #run atom &
 #run telegram-desktop &
-run corectrl &
-run clipman &
