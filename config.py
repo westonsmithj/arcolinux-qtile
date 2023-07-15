@@ -419,7 +419,8 @@ def init_widgets_list():
                         foreground = colors[5],
                         background = colors[1],
                         fontsize = 12,
-                        format="%Y-%m-%d %H:%M"
+                        format="%Y-%m-%d %H:%M",
+		        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('/home/<username>/.config/qtile/scripts/toggle_cal.sh')}
                         ),
                # widget.Sep(
                #          linewidth = 1,
