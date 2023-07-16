@@ -499,7 +499,8 @@ def init_widgets_list():
                         latitude=53.5501,
                         longitude=-113.4687,
                         icon_font="Weather Icons", #ttf-weather-icons from aur
-                        fontsize=25
+                        fontsize=25,
+		        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn('/home/username/.config/qtile/scripts/toggle_weather.sh')}
                         ),
                widget.Sep(
                         linewidth = 1,
