@@ -58,7 +58,11 @@ run $HOME/.config/qtile/scripts/set-pywall.sh &
 #starting user applications at boot time
 run volumeicon &
 run copyq &
+<<<<<<< HEAD
+run /home/username/Documents/btkeepalive/keepalivebt.sh &
+=======
 run /home/john/Documents/btkeepalive/keepalivebt.sh &
+>>>>>>> b15e68ddd984b4b2bc1541e86a7794ba237201b9
 #run discord &
 #nitrogen --restore &
 #run caffeine -a &
